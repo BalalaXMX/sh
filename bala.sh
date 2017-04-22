@@ -38,7 +38,3 @@ if [ $optI -eq 0 -o $optI -eq 3 ]; then
 fi
 
 # Main Program
-for ((i = $strI; i <= $endI; i += $stpI)) ; do
-    case $optI in
-        1)
-done
