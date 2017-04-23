@@ -27,14 +27,17 @@ if [ $optI -eq 1 ]; then
     $readp "Enter Text You Want to Dispaly: " texI
     $readp "Warp? (Y or N): " wrpI
     $readp "Text of Endline: " enlI
-fi
-if [ $optI -eq 0 -o $optI -eq 3 ]; then
+    echo ""
+elif [ $optI -eq 2 -o $optI -eq 3 ]; then
     $ece ""$ec_wr"This script will create .sh files or directories in your HOME diretcory!"$ec_0""
     $ece ""$ec_wr"Please enter CTRL+C to stopped!"$ec_0""
     $readp "Add Prefix? (Y or N): " adpI
     if [ $adpI = y -o $adpI = Y ]; then
         $readp "Prefix: " preI
     fi
+    echo ""
+else
+    echo ""
 fi
 
 # Main Program
