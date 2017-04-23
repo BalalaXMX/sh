@@ -12,7 +12,7 @@ ec_pr="$0 ERROR: Permission Denied"
 ec_yn="Please enetr Y or N."
 
 # Welcome and Copyright
-$ece ""$ec_bb"XMX Number Circulator"$ec_0"\n"
+$ece "\n"$ec_bb"XMX Number Circulator"$ec_0"\n"
 echo "Copyright (C) 2017 YuanYuan in BLMF club"
 echo "Lincesed under by GNU GPLv3+: GNU GPL 3 and later <http://www.gnu.org/lincese/>"
 $ece "This is free software; you are free to change and redistribute it.\n"
@@ -91,6 +91,44 @@ for ((i = $strI; i <= $endI; i += $stpI)); do
         3)
             case $adpI in
                 y|Y)
-
-            esac
+                    if [ ! -w $HOME ]; then
+                        echo "$ec_pr"
+                        exit 1
+                    else
+                        $mkd $HOME/$preI$i
+                        chmod 744 $HOME/$preI$i
+                        echo "The $HOME/$preI$i is created!"
+                    fi ;;
+                n|N)
+                    if [ ! -w $HOME ]; then
+                        echo "$ec_pr"
+                        exit 1
+                    else
+                        $mkd $HOME/$i
+                        chmod 744 $HOME/$i
+                        echo "The $HOME/$i is created!"
+                    fi ;;
+            esac ;;
+        4)
+            echo "$i" ;;
+        [5-9])
+            echo "You Are Rubbish !"
+            exit 1 ;;
+        *)
+            echo "You Are Big Rubbish! HA HA HA!" ;;
     esac
+done
+
+# unset variable
+unset i
+unset preI
+unset enlI
+unset texI
+unset strI
+unset endI
+unset optI
+unset stpI
+
+# Thanks
+$ece "\n"$ec_bb"Completed!"$ec_0""
+echo ""
