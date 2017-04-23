@@ -21,14 +21,14 @@ $ece "This is free software; you are free to change and redistribute it.\n"
 $readp "Start= " strI
 $readp "End= " endI
 $readp "Step= " stpI
-echo ""
+echo "(1-echo text; 2-mksh; 3-mkdir; 4-echo nmuber)"
 $readp "Operation= " optI
-if [ $optI -eq 1 ]; then
+if [ $optI = 1 ]; then
     $readp "Enter Text You Want to Dispaly: " texI
     $readp "Warp? (Y or N): " wrpI
     $readp "Text of Endline: " enlI
     echo ""
-elif [ $optI -eq 2 -o $optI -eq 3 ]; then
+elif [ $optI = 2 -o $optI = 3 ]; then
     $ece ""$ec_wr"This script will create .sh files or directories in your HOME diretcory!"$ec_0""
     $ece ""$ec_wr"Please enter CTRL+C to stopped!"$ec_0""
     $readp "Add Prefix? (Y or N): " adpI
