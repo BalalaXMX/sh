@@ -38,3 +38,59 @@ if [ $optI -eq 0 -o $optI -eq 3 ]; then
 fi
 
 # Main Program
+for ((i = $strI; i <= $endI; i += $stpI)); do
+    case $optI in
+        1)
+            case $wrpI in
+                y|Y)
+                    echo "$texI$i$enlI" ;;
+                n|N)
+                    echo -n "$texI$i$enlI" ;;
+                *)
+                    echo "$ec_yn"
+                    exit 1 ;;
+            esac ;;
+        2)
+            case $adpI in
+                y|Y)
+                    if [ ! -e $homesh ]; then
+                        if [ ! -w $HOME ]; then
+                            echo "$ec_pr"
+                            exit 1
+                        else
+                            $mkd $homesh
+                            touch $homesh/$preI$i.sh
+                            chmod 755 $homesh/$preI$i.sh
+                            echo "The $homesh$preI$i.sh is created!"
+                        fi
+                    else
+                        touch $homesh/$preI$i.sh
+                        chmod 755 $homesh/$preI$i.sh
+                        echo "The $homesh$preI$i.sh is created!"
+                    fi ;;
+                n|N)
+                    if [ ! -e $homesh ]; then
+                        if [ ! -w $HOME ]; then
+                            echo "$ec_pr"
+                            exit 1
+                        else
+                            $mkd $homesh
+                            touch $homesh/$i.sh
+                            chmod 755 $homesh/$i.sh
+                            echo "The $homesh/$i.sh is created!"
+                        fi
+                    else
+                        touch $homesh/$i.sh
+                        chmod 755 $homesh/$i.sh
+                        echo "The $homesh/$i.sh is created!"
+                    fi ;;
+                *)
+                    echo "$ec_yn"
+                    exit 1 ;;
+            esac ;;
+        3)
+            case $adpI in
+                y|Y)
+
+            esac
+    esac
