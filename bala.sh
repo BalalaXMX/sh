@@ -122,7 +122,7 @@ for ((i = $strI; i <= $endI; i += $stpI)); do
     esac
 done
 
-# unset variable
+# Clear Variables
 unset i
 unset preI
 unset enlI
